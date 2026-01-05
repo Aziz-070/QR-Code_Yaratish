@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code yaratish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+  <h2>QR Code yaratish</h2>
+  <input type="text" id="text" placeholder="Matn kiriting">
+  <button onclick="generateQR()">Yaratish</button>
+  <br><br>
+  <img id="qr" />
+
+  <script>
+    function generateQR() {
+      const text = document.getElementById("text").value;
+      const apiUrl = 
+        "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" 
+        + encodeURIComponent(text);
+
+      document.getElementById("qr").src = apiUrl;
+    }
+  </script>
+<style>
+ h2{
+    font-size: 50px;
+    text-align: center;
+ }
+ input{
+    font-size: 30px;
+ }
+ button{
+    font-size: 30px;
+    border-radius: 10px;
+ }
+</style>
+
+    <script src="script.js"></script>
+</body>
+</html>
